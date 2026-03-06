@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Login } from "../pages/admin/Login";
 import { AdminLayout } from "../components/AdminLayout";
+import { Pedidos } from "../pages/admin/Pedidos";
 
 function PrivateRoute({ children }) {
   const { usuario, loading } = useAuth();
@@ -25,11 +26,6 @@ const DashboardAdmin = () => (
   <div>
     <h1 className="text-2xl font-bold">Resumo do Dia</h1>
     <p className="text-gray-600">Conteúdo do dashboard aqui.</p>
-  </div>
-);
-const PedidosAdmin = () => (
-  <div>
-    <h1 className="text-2xl font-bold">Gestão de Pedidos</h1>
   </div>
 );
 const CardapioAdmin = () => (
@@ -71,7 +67,7 @@ export function AppRoutes() {
         >
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<DashboardAdmin />} />
-          <Route path="pedidos" element={<PedidosAdmin />} />
+          <Route path="pedidos" element={<Pedidos />} />
           <Route path="cardapio" element={<CardapioAdmin />} />
           <Route path="mesas" element={<MesasAdmin />} />
           <Route path="financeiro" element={<FinanceiroAdmin />} />
