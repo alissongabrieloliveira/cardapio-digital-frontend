@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { Login } from "../pages/admin/Login";
 
 function PrivateRoute({ children }) {
   const { usuario, loading } = useAuth();
@@ -41,7 +42,7 @@ export function AppRoutes() {
       <Routes>
         <Route path="/menu/:slug" element={<CardapioCliente />} />
 
-        <Route path="/admin/login" element={<LoginAdmin />} />
+        <Route path="/admin/login" element={<Login />} />
 
         <Route
           path="/admin/dashboard"
