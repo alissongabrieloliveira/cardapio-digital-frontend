@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Login } from "../pages/admin/Login";
+import { AdminLayout } from "../components/AdminLayout";
 
 function PrivateRoute({ children }) {
   const { usuario, loading } = useAuth();
@@ -20,14 +21,30 @@ function PrivateRoute({ children }) {
   return children;
 }
 
-const LoginAdmin = () => (
-  <div className="p-8 text-xl font-bold">
-    Tela de Login do Admin (Em construção)
+const DashboardAdmin = () => (
+  <div>
+    <h1 className="text-2xl font-bold">Resumo do Dia</h1>
+    <p className="text-gray-600">Conteúdo do dashboard aqui.</p>
   </div>
 );
-const DashboardAdmin = () => (
-  <div className="p-8 text-xl font-bold text-green-600">
-    Dashboard Privado (Em construção)
+const PedidosAdmin = () => (
+  <div>
+    <h1 className="text-2xl font-bold">Gestão de Pedidos</h1>
+  </div>
+);
+const CardapioAdmin = () => (
+  <div>
+    <h1 className="text-2xl font-bold">Meu Cardápio</h1>
+  </div>
+);
+const MesasAdmin = () => (
+  <div>
+    <h1 className="text-2xl font-bold">Gerenciar Mesas</h1>
+  </div>
+);
+const FinanceiroAdmin = () => (
+  <div>
+    <h1 className="text-2xl font-bold">Extrato Financeiro</h1>
   </div>
 );
 const CardapioCliente = () => (
@@ -45,13 +62,20 @@ export function AppRoutes() {
         <Route path="/admin/login" element={<Login />} />
 
         <Route
-          path="/admin/dashboard"
+          path="/admin"
           element={
             <PrivateRoute>
-              <DashboardAdmin />
+              <AdminLayout />
             </PrivateRoute>
           }
-        />
+        >
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<DashboardAdmin />} />
+          <Route path="pedidos" element={<PedidosAdmin />} />
+          <Route path="cardapio" element={<CardapioAdmin />} />
+          <Route path="mesas" element={<MesasAdmin />} />
+          <Route path="financeiro" element={<FinanceiroAdmin />} />
+        </Route>
 
         <Route path="*" element={<Navigate to="/admin/login" replace />} />
       </Routes>
