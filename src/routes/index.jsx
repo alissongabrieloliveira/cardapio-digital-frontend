@@ -3,6 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Login } from "../pages/admin/Login";
 import { AdminLayout } from "../components/AdminLayout";
 import { Pedidos } from "../pages/admin/Pedidos";
+import { Cardapio } from "../pages/admin/Cardapio";
 
 function PrivateRoute({ children }) {
   const { usuario, loading } = useAuth();
@@ -68,7 +69,7 @@ export function AppRoutes() {
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<DashboardAdmin />} />
           <Route path="pedidos" element={<Pedidos />} />
-          <Route path="cardapio" element={<CardapioAdmin />} />
+          <Route path="cardapio" element={<Cardapio />} />
           <Route path="mesas" element={<MesasAdmin />} />
           <Route path="financeiro" element={<FinanceiroAdmin />} />
         </Route>
