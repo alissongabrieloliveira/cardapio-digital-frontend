@@ -5,6 +5,7 @@ import { AdminLayout } from "../components/AdminLayout";
 import { Pedidos } from "../pages/admin/Pedidos";
 import { Cardapio } from "../pages/admin/Cardapio";
 import { Mesas } from "../pages/admin/Mesas";
+import { Financeiro } from "../pages/admin/Financeiro";
 
 function PrivateRoute({ children }) {
   const { usuario, loading } = useAuth();
@@ -72,7 +73,7 @@ export function AppRoutes() {
           <Route path="pedidos" element={<Pedidos />} />
           <Route path="cardapio" element={<Cardapio />} />
           <Route path="mesas" element={<Mesas />} />
-          <Route path="financeiro" element={<FinanceiroAdmin />} />
+          <Route path="financeiro" element={<Financeiro />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/admin/login" replace />} />
