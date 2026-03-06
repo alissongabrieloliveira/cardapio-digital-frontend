@@ -4,6 +4,7 @@ import { Login } from "../pages/admin/Login";
 import { AdminLayout } from "../components/AdminLayout";
 import { Pedidos } from "../pages/admin/Pedidos";
 import { Cardapio } from "../pages/admin/Cardapio";
+import { Mesas } from "../pages/admin/Mesas";
 
 function PrivateRoute({ children }) {
   const { usuario, loading } = useAuth();
@@ -70,7 +71,7 @@ export function AppRoutes() {
           <Route path="dashboard" element={<DashboardAdmin />} />
           <Route path="pedidos" element={<Pedidos />} />
           <Route path="cardapio" element={<Cardapio />} />
-          <Route path="mesas" element={<MesasAdmin />} />
+          <Route path="mesas" element={<Mesas />} />
           <Route path="financeiro" element={<FinanceiroAdmin />} />
         </Route>
 
