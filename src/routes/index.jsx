@@ -8,6 +8,7 @@ import { Cardapio } from "../pages/admin/Cardapio";
 import { Mesas } from "../pages/admin/Mesas";
 import { Financeiro } from "../pages/admin/Financeiro";
 import { CardapioMesa } from "../pages/public/CardapioMesa";
+import { Configuracoes } from "../pages/admin/Configuracoes";
 
 function PrivateRoute({ children }) {
   const { usuario, loading } = useAuth();
@@ -78,6 +79,7 @@ export function AppRoutes() {
           <Route path="cardapio" element={<Cardapio />} />
           <Route path="mesas" element={<Mesas />} />
           <Route path="financeiro" element={<Financeiro />} />
+          <Route path="configuracoes" element={<Configuracoes />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/admin/login" replace />} />
