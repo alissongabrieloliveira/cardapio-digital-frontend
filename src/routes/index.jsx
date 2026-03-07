@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Login } from "../pages/admin/Login";
 import { AdminLayout } from "../components/AdminLayout";
+import { Dashboard } from "../pages/admin/Dashboard";
 import { Pedidos } from "../pages/admin/Pedidos";
 import { Cardapio } from "../pages/admin/Cardapio";
 import { Mesas } from "../pages/admin/Mesas";
@@ -69,7 +70,7 @@ export function AppRoutes() {
           }
         >
           <Route index element={<Navigate to="dashboard" replace />} />
-          <Route path="dashboard" element={<DashboardAdmin />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="pedidos" element={<Pedidos />} />
           <Route path="cardapio" element={<Cardapio />} />
           <Route path="mesas" element={<Mesas />} />
