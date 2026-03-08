@@ -9,6 +9,7 @@ import { Mesas } from "../pages/admin/Mesas";
 import { Financeiro } from "../pages/admin/Financeiro";
 import { CardapioMesa } from "../pages/public/CardapioMesa";
 import { Configuracoes } from "../pages/admin/Configuracoes";
+import { CardapioDelivery } from "../pages/public/CardapioDelivery";
 
 function PrivateRoute({ children }) {
   const { usuario, loading } = useAuth();
@@ -60,6 +61,8 @@ export function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/menu/:slug" element={<CardapioCliente />} />
+
+        <Route path="/delivery/:slug" element={<CardapioDelivery />} />
 
         <Route path="/mesa/:token" element={<CardapioMesa />} />
 
